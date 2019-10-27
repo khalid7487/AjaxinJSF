@@ -32,7 +32,7 @@
                     <h:commandButton value="Update Time" action="nothing">
                         <f:ajax render="timeResult"/>
                     </h:commandButton>
-                    <h:outputText value="#{}"/>
+                    <h:outputText value="#{sumBean.time}" id="timeResult"/>
                 </h:panelGrid>
             </h:form>
         </h:panelGrid>
