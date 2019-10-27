@@ -1,7 +1,14 @@
 package bean;
 
+import db.Database;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.model.SelectItem;
 
 @ManagedBean
 @SessionScoped
@@ -70,6 +77,22 @@ public class UserBean {
 
     public void setMsg(String msg) {
         this.msg = msg;
+    }
+    public List<SelectItem> getFullName(){
+        List<SelectItem> retVal=new ArrayList<SelectItem>();
+        try {
+            Connection con=Database.getConnection();
+            Statement st=con.createStatement();
+            ResultSet rs=null;
+            String myQuery=" select concat(first_name,' ',last_name) as name from members";
+            rs=st.executeQuery(myQuery);
+            while(rs.next()){
+                retVal.add(new SelectItem(rs.getString("name")));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return retVal;
     }
     
     
