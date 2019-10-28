@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"  
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    <h:body>
+        <h:form>
+            <h:panelGrid id="panel1" columns="1" border="1"
+                         cellpadding="5" cellspacing="1">
+                <f:facet name="header">
+                    <h:outputText value="JSF2 Action parameter"/>
+                </f:facet>
+                <h:outputText value="#{userBean.userinput}"/>
+                <h:commandButton  action="#{userBean.dispaction}" value="Confirm">
+                    <f:param name="someparam" value="#{userBean.someparam}" />
+                </h:commandButton>
+            </h:panelGrid>
+        </h:form>
+    </h:body>
+</html>

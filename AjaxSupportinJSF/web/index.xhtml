@@ -87,6 +87,22 @@
                 </f:facet>
             </h:panelGrid>
         </h:form>
+        <h:form>
+                <h:panelGrid id="panel4" columns="1" border="1"
+                             cellpadding="5" cellspacing="1">
+                    <f:facet name="header">
+                        <h:outputText value="JSF2 Action parameter"/>
+                    </f:facet>
+                    <h:inputText value="#{userBean.userinput}"/>
+                    <h:commandButton action="#{userBean.action}" value="Pass Value using ManagedProperty">
+                        <f:param name="someparam" value="insert" />
+                    </h:commandButton>
+                    <h:commandButton action="#{userBean.action}" value="Pass Value using PropertyActionListener">
+                        <f:setPropertyActionListener target="#{userBean.someparam}" 
+                            value="update"/>
+                    </h:commandButton>
+                </h:panelGrid>
+            </h:form>
     </h:body>
 </html>
 
