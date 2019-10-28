@@ -79,6 +79,12 @@
                 <h:inputSecret value="#{userBean.pass}" id="pass"/>
                 <h:outputLabel value="Registration Date:"/>
                 <h:inputText value="#{userBean.regdate}" id="reg"/>
+                <f:facet name="footer">
+                    <h:outputLabel value="#{userBean.msg}" id="msg" styleClass="msg"/>
+                    <h:commandButton value="Upadte Info" action="#{userBean.updateUser}">
+                        <f:ajax render="msg ulist" execute="@form"/>
+                    </h:commandButton>
+                </f:facet>
             </h:panelGrid>
         </h:form>
     </h:body>

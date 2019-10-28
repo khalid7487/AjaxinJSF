@@ -122,5 +122,23 @@ public class UserBean {
       }
   }
   
+  public void updateUser(){
+       Connection con = null;
+        Statement st = null;
+        ResultSet rs = null;
+        try {
+            con = Database.getConnection();
+            st = con.createStatement();
+            int update = st.executeUpdate("update members set first_name='" + first_name + "',last_name='" + last_name + "' ,email='" + email + "',pass='" + pass + "' where uname='" + uname + "'");
+            if (update > 0) {
+                msg = "Member Update Successful";
+            } else {
+                msg = "Member Update Fail!";
+            }
+ 
+        } catch (Exception e) {
+            System.out.println("Insert Error" + e.getMessage());
+        }
+  }
     
 }
