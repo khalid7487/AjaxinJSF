@@ -101,6 +101,26 @@ public class UserBean {
         return retVal;
     }
  
-   
+  public void fullInfo(){
+      Connection con=null;
+      Statement st=null;
+      ResultSet rs2=null;
+      try {
+          con=Database.getConnection();
+          st=con.createStatement();
+          rs2=st.executeQuery("select * from members where concat(first_name, ' ', last_name)='"+selectedname+"'");
+          while(rs2.next()){
+              setFirst_name(rs2.getString("first_name"));
+              setLast_name(rs2.getString("last_name"));
+              setUname(rs2.getString("uname"));
+              setEmail(rs2.getString("email"));
+              setPass(rs2.getString("pass"));
+              setRegdate(rs2.getString("regdate"));
+          }
+      } catch (Exception e) {
+          System.out.println("Insert Error:" +e.getMessage());
+      }
+  }
+  
     
 }

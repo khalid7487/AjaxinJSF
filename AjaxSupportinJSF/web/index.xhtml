@@ -65,9 +65,20 @@
                 <h:outputLabel value="Select User:"/>
                 <h:selectOneMenu value="#{userBean.selectedname}" id="ulist">
                     <f:selectItems value="#{userBean.fullName}"/>
-            <!--        <f:ajax event="change" render="fname lname email uname pass reg" listener=""/> -->
+                    <f:ajax event="change" render="fname lname email uname pass reg" listener="#{userBean.fullInfo}"/> 
                 </h:selectOneMenu>
-              
+                <h:outputLabel value="First Name:"/>
+                <h:inputText value="#{userBean.first_name}" id="fname"/>
+                <h:outputLabel value="Last Name:"/>
+                <h:inputText value="#{userBean.last_name}" id="lname"/>
+                <h:outputLabel value="Email:"/>
+                <h:inputText value="#{userBean.email}" id="email"/>
+                <h:outputLabel value="User Name:"/>
+                <h:inputText value="#{userBean.uname}" id="uname"/>
+                <h:outputText value="Password:"/>
+                <h:inputSecret value="#{userBean.pass}" id="pass"/>
+                <h:outputLabel value="Registration Date:"/>
+                <h:inputText value="#{userBean.regdate}" id="reg"/>
             </h:panelGrid>
         </h:form>
     </h:body>
