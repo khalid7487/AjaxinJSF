@@ -48,13 +48,28 @@
                     <h:outputLabel value="Sum:"/> 
                     <h:outputText value="#{sumBean.sum}" id="sumResult"/>
                     <f:facet name="footer">
-                        <h:commandButton value="Compute Sum">
+                       <h:commandButton value="Compute Sum">
                             <f:ajax execute="@form" render="sumResult"/>
                         </h:commandButton>
                     </f:facet>
                 </h:panelGrid>
             </h:form>
             </h:panelGrid>
+        <br/>
+        <h:form>
+            <h:panelGrid id="panel3" columns="2" border="1"
+                         cellpadding="5" cellspacing="1">
+                <f:facet name="header">
+                    <h:outputText value="Update User Info"/>
+                </f:facet>
+                <h:outputLabel value="Select User:"/>
+                <h:selectOneMenu value="#{userBean.selectedname}" id="ulist">
+                    <f:selectItems value="#{userBean.fullName}"/>
+            <!--        <f:ajax event="change" render="fname lname email uname pass reg" listener=""/> -->
+                </h:selectOneMenu>
+              
+            </h:panelGrid>
+        </h:form>
     </h:body>
 </html>
 
